@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
@@ -335,51 +336,51 @@ public class Main {
     }
 
 
-        public static void deshifr_isgorod(){
-            Scanner in = new Scanner(System.in);
-            System.out.print("Введите строку:");
-            String stroka = in.nextLine();
-            System.out.print("Введите ключ:");
-            int key = in.nextInt();
-            char[][] myArray = new char[key][stroka.length()];
-            String res = new String("");
-            int period = 2*(key-1);
+    public static void deshifr_isgorod(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите строку:");
+        String stroka = in.nextLine();
+        System.out.print("Введите ключ:");
+        int key = in.nextInt();
+        char[][] myArray = new char[key][stroka.length()];
+        String res = new String("");
+        int period = 2*(key-1);
 
-            int[] mas = new int[stroka.length()];
-            for(int i=0;i<stroka.length();i++){
-                int ost = i%period;
-                int row = key-1-Math.abs(key-1-ost);
-                mas[i]=row;
-            }
-             Arrays.sort(mas);
-
-            int down = 0;
-            int i =0;
-            while (res.length() !=stroka.length()){
-                for (int l=0;l<stroka.length();l++){
-                    if (i==mas[l]){
-                        res+=stroka.charAt(l);
-                        mas[l]=-1;
-                        break;
-                    }
-                }
-                if (i==key-1){
-                    down = 1;
-                }
-                if (i==0){
-                    down = 0;
-                }
-                if (down == 0){
-                    i++;
-                }
-                else {
-                    i--;
-                }
-            }
-            System.out.println(res);
-
-
+        int[] mas = new int[stroka.length()];
+        for(int i=0;i<stroka.length();i++){
+            int ost = i%period;
+            int row = key-1-Math.abs(key-1-ost);
+            mas[i]=row;
         }
+        Arrays.sort(mas);
+
+        int down = 0;
+        int i =0;
+        while (res.length() !=stroka.length()){
+            for (int l=0;l<stroka.length();l++){
+                if (i==mas[l]){
+                    res+=stroka.charAt(l);
+                    mas[l]=-1;
+                    break;
+                }
+            }
+            if (i==key-1){
+                down = 1;
+            }
+            if (i==0){
+                down = 0;
+            }
+            if (down == 0){
+                i++;
+            }
+            else {
+                i--;
+            }
+        }
+        System.out.println(res);
+
+
+    }
 
 
     public static void deshifr_vishener(char [][] myArray) {
@@ -402,9 +403,9 @@ public class Main {
                 if (stroka.charAt(i) < 90 && stroka.charAt(i) > 41) {
                     if (myArray[keyword.charAt(i) - 64][j] == stroka.charAt(i)){
                         System.out.print(myArray[0][j]);
+                    }
                 }
-            }
-                  else{
+                else{
                     System.out.print(stroka.charAt(i));
                     break;
                 }
@@ -432,7 +433,7 @@ public class Main {
                 keyword+=(key.charAt(j));
         for(int i=0;i<stroka.length();i++){
             if(stroka.charAt(i)>41 && stroka.charAt(i)<90)
-            System.out.print(myArray[keyword.charAt(i)-64][stroka.charAt(i)-64]);
+                System.out.print(myArray[keyword.charAt(i)-64][stroka.charAt(i)-64]);
             else
                 System.out.print(stroka.charAt(i));
         }
@@ -504,11 +505,11 @@ public class Main {
                     while (choice2 > 3 || choice2 < 1) {
                         choice2 = in.nextInt();
                     }
-                   if (choice2 == 1)
+                    if (choice2 == 1)
                         shifrovka_isgorod();
                     else
                         deshifr_isgorod();
-                   break;
+                    break;
                 case 4:
                     System.out.println("1.Шифрование");
                     System.out.println("2.Дешифровка");
